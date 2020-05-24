@@ -4,58 +4,39 @@ using namespace std;
 using ll = long long;
 using P = pair<int, int>;
 
+const int INF = 1001001001;
+
 int main() {
   int n, m, a, b;
   cin >> n >> m;
-  vector<vector<int>> d(n);
+  vector<vector<int>> to(n);
   rep(i, m) {
     cin >> a >> b;
     a--, b--;
-    d[a].push_back(b);
-    d[b].push_back(a);
+    to[a].push_back(b);
+    to[b].push_back(a);
   }
 
   queue<int> q;
-  vector<int> visited(n, -1);
+  vector<int> dist(n, INF);
+  vector<int> pre(n, -1);
+  dist[0] = 0;
   q.push(0);
-  visited[0] = 0;
   while (!q.empty()) {
-    int p = q.front();
+    int v = q.front();
     q.pop();
-    rep(j, d[p].size()) {
-      int np = d[p][j];
-      if (visited[np] == -1) {
-        q.push(np);
-        visited[np] = visited[p] + 1;
-      }
-    }
-  }
-  rep(i, n) {
-    if (visited[i] == -1) {
-      cout << "No" << endl;
-      return 0;
+    for (int u : to[v]) {
+      if (dist[u] != INF) continue;
+      dist[u] = dist[v] + 1;
+      pre[u] = v;
+      q.push(u);
     }
   }
 
-  //   rep(i, n) cerr << visited[i] << ' ';
-  //   cerr << endl;
-
-  vector<P> p1, p2;
-  rep(i, n) p1.emplace_back(visited[i], i);
-  sort(p1.begin(), p1.end());
-  int np = 0, nd = 0;
-  rep(i, n) {
-    if (p1[i].first == nd) {
-      p2.emplace_back(p1[i].second, np);
-    } else {
-      np = p1[i - 1].second;
-      nd++;
-      p2.emplace_back(p1[i].second, np);
-    }
-  }
-  sort(p2.begin(), p2.end());
   cout << "Yes" << endl;
-  for (int i = 1; i < n; i++) cout << p2[i].second + 1 << endl;
-
+  rep(i, n) {
+    if (i == 0) continue;
+    cout << pre[i] + 1 << endl;
+  }
   return 0;
 }
