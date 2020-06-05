@@ -5,8 +5,13 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int a, b, c;
-  cin >> a >> b >> c;
-  int res = min({a + b, a + c, b + c});
-  cout << res << endl;
+  int x;
+  cin >> x;
+  ll ans = 0, dist = 0;
+  while (dist < x) {
+    ans++;
+    dist += ans;
+  }
+  cout << ans << endl;
+  return 0;
 }

@@ -5,8 +5,7 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int a, b, c;
-  cin >> a >> b >> c;
-  int res = min({a + b, a + c, b + c});
-  cout << res << endl;
+  int n;
+  cin >> n;
+  return 0;
 }

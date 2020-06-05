@@ -9,8 +9,9 @@ int main() {
   cin >> s;
   for (int i = s.size() - 2; i >= 2; i -= 2) {
     ss = s.substr(0, i);
-    if (ss.substr(0, ss.size() / 2) ==
-        ss.substr(ss.size() / 2, ss.size() / 2)) {
+    string ss1 = ss.substr(0, ss.size() / 2);
+    string ss2 = ss.substr(ss.size() / 2, ss.size() / 2);
+    if (ss1 == ss2) {
       cout << ss.size() << endl;
       return 0;
     }
