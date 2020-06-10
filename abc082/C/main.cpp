@@ -5,7 +5,18 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll n;
+  ll n, a;
   cin >> n;
+  map<ll, ll> mp;
+  rep(i, n) {
+    cin >> a;
+    mp[a]++;
+  }
+
+  ll ans = 0;
+  for (auto x : mp) {
+    ans += (x.first > x.second ? x.second : x.second - x.first);
+  }
+  cout << ans << endl;
   return 0;
 }
