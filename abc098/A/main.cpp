@@ -5,7 +5,7 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
-  cin >> n;
-  return 0;
+  int a, b;
+  cin >> a >> b;
+  cout << max(max(a + b, a - b), a * b) << endl;
 }
