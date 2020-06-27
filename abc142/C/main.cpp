@@ -5,19 +5,7 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll n;
+  int n;
   cin >> n;
-  if (n % 2 == 1) {
-    cout << 0 << endl;
-    return 0;
-  }
-
-  ll ans = 0, d = 10;
-  while (d <= n) {
-    ans += n / d;
-    d *= 5;
-  }
-
-  cout << ans << endl;
   return 0;
 }
