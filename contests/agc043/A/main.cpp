@@ -1,54 +1,29 @@
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < n; i++)
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
 
-const int dx[] = {0, 1};
-const int dy[] = {1, 0};
+const int INF = 1001001001;
 
 int main() {
   int h, w;
   cin >> h >> w;
   vector<string> s(h);
   rep(i, h) cin >> s[i];
-  vector<vector<int>> d(h, vector<int>(w, -1));
-  queue<P> q1, q2;
-  int sx = 0, sy = 0;
-  int gx = h - 1, gy = w - 1;
-  q1.push(P(sx, sy));
-  d[0][0] = 0;
-  char here = s[0][0];
-  while (!q1.empty() || !q2.empty()) {
-    while (!q1.empty()) {
-      P p = q1.front();
-      int cx = p.first, cy = p.second;
-      q1.pop();
-      // if (cx == gx && cy == gy) break;
-      rep(i, 2) {
-        int nx = cx + dx[i], ny = cy + dy[i];
-        if (nx < 0 || h <= nx || ny < 0 || w <= ny) continue;
-        if (d[nx][ny] != -1) continue;
-        if (s[nx][ny] == here) {
-          d[nx][ny] = d[cx][cy];
-          q1.push(P(nx, ny));
-        } else {
-          d[nx][ny] = d[cx][cy] + 1;
-          q2.push(P(nx, ny));
-        }
-      }
-    }
-    swap(q1, q2);
-    here = (here == '.' ? '#' : '.');
-    // rep(i, h) rep(j, w) printf("%+d%c", d[i][j], (j == w - 1 ? '\n' : ' '));
-    // cout << endl;
-  }
+  vector<vector<int>> dp(h, vector<int>(w, INF));
 
-  int ans;
-  if (s[sx][sy] == '.')
-    ans = (d[gx][gy] + 1) / 2;
-  else
-    ans = d[gx][gy] / 2 + 1;
-  cout << ans << endl;
+  auto ok = [&](int i, int j) { return (0 <= i && i < h && 0 <= j && j < w); };
+
+  dp[0][0] = (int)(s[0][0] == '#') + (int)(s[h - 1][w - 1] == '#');
+  rep(i, h) rep(j, w) {
+    if (ok(i, j - 1)) {
+      dp[i][j] = min(dp[i][j], dp[i][j - 1] + (int)(s[i][j] != s[i][j - 1]));
+    }
+    if (ok(i - 1, j)) {
+      dp[i][j] = min(dp[i][j], dp[i - 1][j] + (int)(s[i][j] != s[i - 1][j]));
+    }
+  }
+  cout << dp[h - 1][w - 1] / 2 << endl;
   return 0;
 }
