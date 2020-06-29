@@ -8,16 +8,20 @@ int main() {
   int n;
   cin >> n;
   vector<int> a(n);
-  rep(i, n) cin >> a[i];
-  vector<vector<ll>> dp(n + 1, vector<ll>(2, -1));
-
-  dp[0][0] = 0;
-  dp[0][1] = -1e18;
+  int cnt = 0;
   rep(i, n) {
-    dp[i + 1][0] = max(dp[i][0] + a[i], dp[i][1] - a[i]);
-    dp[i + 1][1] = max(dp[i][0] - a[i], dp[i][1] + a[i]);
+    cin >> a[i];
+    if (a[i] < 0) cnt++;
   }
-  cout << dp[n][0] << endl;
-  // rep(i, n) cerr << dp[i][0] << " " << dp[i][1] << endl;
+
+  ll ans = 0;
+  rep(i, n) ans += abs(a[i]);
+  if (cnt % 2 != 0) {
+    int min_v = 1001001001;
+    rep(i, n) min_v = min(min_v, abs(a[i]));
+    ans -= 2 * min_v;
+  }
+  cout << ans << endl;
+
   return 0;
 }
