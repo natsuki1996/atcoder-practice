@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using namespace std;
-
-#define rep(i, n) for (int i = 0; i < n; i++)
+using ll = long long;
+using P = pair<int, int>;
 
 int main() {
   int h, w;
@@ -11,4 +12,3 @@ int main() {
   rep(i, 2 * h) cout << c[i / 2] << endl;
   return 0;
 }
-
