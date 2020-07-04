@@ -1,10 +1,8 @@
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < n; i++)
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
-
-const int mod = 2019;
 
 int main() {
   ll l, r;
