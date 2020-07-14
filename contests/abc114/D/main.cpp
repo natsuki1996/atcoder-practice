@@ -7,15 +7,5 @@ using P = pair<int, int>;
 int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  rep(i, n) {
-    cin >> a[i];
-    a[i]--;
-  }
-  int cnt = 0;
-  rep(i, n) {
-    if (a[a[i]] == i) cnt++;
-  }
-  cout << cnt / 2 << endl;
   return 0;
 }
