@@ -1,11 +1,20 @@
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < n; i++)
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
+  ll n, a;
   cin >> n;
-  return 0;
+  map<int, int> mp;
+  rep(i, n) {
+    cin >> a;
+    mp[a]++;
+  }
+
+  ll ans = mp.size();
+  if (ans % 2 == 0) ans--;
+
+  cout << ans << endl;
 }
