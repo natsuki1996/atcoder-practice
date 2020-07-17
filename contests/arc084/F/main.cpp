@@ -5,10 +5,7 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int d;
-  cin >> d;
-  cout << "Christmas";
-  for (int i = d; i < 25; i++) cout << " Eve";
-  cout << endl;
+  ll n;
+  cin >> n;
   return 0;
 }
