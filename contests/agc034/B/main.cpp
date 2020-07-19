@@ -10,9 +10,12 @@ int main() {
 
   ll ans = 0, cntA = 0;
   rep(i, s.size()) {
-    if (s.substr(i, 2) == "BC") ans += cntA, i++;
-    else if (s[i] == 'A') cntA++;
-    else cntA = 0;
+    if (s.substr(i, 2) == "BC")
+      ans += cntA, i++;
+    else if (s[i] == 'A')
+      cntA++;
+    else
+      cntA = 0;
   }
   cout << ans << endl;
 
