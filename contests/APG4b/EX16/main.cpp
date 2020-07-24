@@ -5,7 +5,14 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll n;
-  cin >> n;
+  vector<int> a(5);
+  rep(i, 5) cin >> a[i];
+  rep(i, 4) {
+    if (a[i] == a[i + 1]) {
+      cout << "YES" << endl;
+      return 0;
+    }
+  }
+  cout << "NO" << endl;
   return 0;
 }
