@@ -5,11 +5,7 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll a, b, c, k, cnt = 0;
-  cin >> a >> b >> c >> k;
-
-  while (a >= b) b *= 2, cnt++;
-  while (b >= c) c *= 2, cnt++;
-  cout << (cnt <= k ? "Yes" : "No") << endl;
+  ll n;
+  cin >> n;
   return 0;
 }

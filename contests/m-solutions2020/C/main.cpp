@@ -10,12 +10,6 @@ int main() {
   vector<int> a(n);
   rep(i, n) cin >> a[i];
 
-  for (int i = k; i < n; i++) {
-    if (a[i - k] < a[i]) {
-      cout << "Yes" << endl;
-    } else {
-      cout << "No" << endl;
-    }
-  }
+  rep(i, n - k) cout << (a[i] < a[i + k] ? "Yes" : "No") << endl;
   return 0;
 }
