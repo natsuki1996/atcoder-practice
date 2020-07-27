@@ -5,7 +5,17 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll n;
+  ll n, a, b;
   cin >> n;
+  vector<P> p;
+  rep(i, n) {
+    cin >> a >> b;
+    p.push_back(P(b, a));
+  }
+  sort(p.begin(), p.end());
+  for (auto x : p) {
+    tie(b, a) = x;
+    cout << a << " " << b << endl;
+  }
   return 0;
 }
