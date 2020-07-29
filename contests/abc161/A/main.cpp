@@ -5,7 +5,8 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
-  cin >> n;
+  int x, y, z;
+  cin >> x >> y >> z;
+  cout << z << " " << x << " " << y << endl;
   return 0;
 }
