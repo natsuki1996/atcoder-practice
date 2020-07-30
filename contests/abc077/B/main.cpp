@@ -9,15 +9,12 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n, k, ans = 1;
-  cin >> n >> k;
-  rep(i, n) {
-    if (ans * 2 > ans + k) {
-      ans += k;
-    } else {
-      ans *= 2;
-    }
+  ll n, i = 1;
+  cin >> n;
+  while (i * i <= n) {
+    i++;
   }
-  cout << ans << endl;
+  i--;
+  cout << i * i << endl;
   return 0;
 }
