@@ -5,7 +5,13 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
+  int n, d;
   cin >> n;
+  map<int, int> mp;
+  rep(i, n) {
+    cin >> d;
+    mp[d]++;
+  }
+  cout << mp.size() << endl;
   return 0;
 }

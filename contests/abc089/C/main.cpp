@@ -1,49 +1,28 @@
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < n; i++)
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using namespace std;
 using ll = long long;
-using P = pair<int, int>;
+using P = pair<ll, ll>;
+
+const ll INF = 1LL << 62;
+const double PI = acos(-1);
+const double eps = 1e-10;
 
 int main() {
   ll n;
   cin >> n;
   string s;
-  vector<ll> cnt(5);
+  map<char, ll> mp;
   rep(i, n) {
     cin >> s;
-    switch (s[0]) {
-      case 'M':
-        cnt[0]++;
-        break;
-
-      case 'A':
-        cnt[1]++;
-        break;
-
-      case 'R':
-        cnt[2]++;
-        break;
-
-      case 'C':
-        cnt[3]++;
-        break;
-
-      case 'H':
-        cnt[4]++;
-        break;
-
-      default:
-        break;
-    }
+    mp[s[0]]++;
   }
-
-  // rep(i, n) cerr << cnt[i] << endl;
-
+  vector<ll> d = {mp['M'], mp['A'], mp['R'], mp['C'], mp['H']};
   ll ans = 0;
   for (int i = 0; i <= 2; i++) {
     for (int j = i + 1; j <= 3; j++) {
       for (int k = j + 1; k <= 4; k++) {
-        ans += cnt[i] * cnt[j] * cnt[k];
+        ans += d[i] * d[j] * d[k];
       }
     }
   }
