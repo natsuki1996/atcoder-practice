@@ -25,7 +25,6 @@ int main() {
     }
   }
 
-  double con = 0;
   ll ans_ws = 0, ans_s = 0;
   for (auto w : waters) {
     for (auto s : sugars) {
