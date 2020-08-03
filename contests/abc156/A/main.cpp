@@ -5,7 +5,8 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
-  cin >> n;
+  int n, r;
+  cin >> n >> r;
+  cout << r + 100 * max(10 - n, 0) << endl;
   return 0;
 }
