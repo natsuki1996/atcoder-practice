@@ -9,7 +9,8 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n;
-  cin >> n;
+  string s;
+  cin >> s;
+  cout << s[0] << s.size() - 2 << s[s.size() - 1] << endl;
   return 0;
 }
