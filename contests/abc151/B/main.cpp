@@ -5,7 +5,13 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
-  cin >> n;
+  int n, k, m, a, total = 0;
+  cin >> n >> k >> m;
+  rep(i, n - 1) {
+    cin >> a;
+    total += a;
+  }
+  int target = max(0, n * m - total);
+  cout << (target <= k ? target : -1) << endl;
   return 0;
 }

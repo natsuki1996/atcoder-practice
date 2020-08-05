@@ -5,7 +5,11 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll n;
-  cin >> n;
+  ll a, b;
+  string sa, sb;
+  cin >> a >> b;
+  rep(i, b) sa += to_string(a);
+  rep(i, a) sb += to_string(b);
+  cout << (sa < sb ? sa : sb) << endl;
   return 0;
 }

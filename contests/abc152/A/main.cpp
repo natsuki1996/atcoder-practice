@@ -5,7 +5,8 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  ll n;
-  cin >> n;
+  ll n, m;
+  cin >> n >> m;
+  cout << (n == m ? "Yes" : "No") << endl;
   return 0;
 }

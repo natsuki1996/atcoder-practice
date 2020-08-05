@@ -5,7 +5,7 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
-  cin >> n;
-  return 0;
+  double h, a;
+  cin >> h >> a;
+  cout << ceil(h / a) << endl;
 }
