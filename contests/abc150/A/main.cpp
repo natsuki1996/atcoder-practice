@@ -9,7 +9,8 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n;
-  cin >> n;
+  ll k, x;
+  cin >> k>>x;
+  cout << (500*k>=x?"Yes":"No")<< endl;
   return 0;
 }

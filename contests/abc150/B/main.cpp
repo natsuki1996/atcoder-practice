@@ -9,7 +9,10 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n;
-  cin >> n;
+  ll n, cnt = 0;
+  string s;
+  cin >> n >> s;
+  rep(i, n) if (s.substr(i, 3) == "ABC") cnt++;
+  cout << cnt << endl;
   return 0;
 }
