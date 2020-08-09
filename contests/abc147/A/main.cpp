@@ -5,7 +5,11 @@ using ll = long long;
 using P = pair<int, int>;
 
 int main() {
-  int n;
-  cin >> n;
+  int a, total = 0;
+  rep(i, 3) {
+    cin >> a;
+    total += a;
+  }
+  cout << (total >= 22 ? "bust" : "win") << endl;
   return 0;
 }
