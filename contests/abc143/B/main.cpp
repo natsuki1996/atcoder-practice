@@ -9,7 +9,15 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n;
+  ll n, ans = 0;
   cin >> n;
+  vector<int> d(n);
+  rep(i, n) cin >> d[i];
+  for (int i = 0; i < n; i++) {
+    for (int j = i + 1; j < n; j++) {
+      ans += d[i] * d[j];
+    }
+  }
+  cout << ans << endl;
   return 0;
 }

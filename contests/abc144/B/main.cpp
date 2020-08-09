@@ -11,5 +11,12 @@ const double eps = 1e-10;
 int main() {
   ll n;
   cin >> n;
+  for (int i = 1; i < 10; i++) {
+    if (n % i == 0 && n / i < 10) {
+      cout << "Yes" << endl;
+      return 0;
+    }
+  }
+  cout << "No" << endl;
   return 0;
 }

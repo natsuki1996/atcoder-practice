@@ -9,7 +9,8 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n;
-  cin >> n;
+  ll a, b;
+  cin >> a >> b;
+  cout << (a < 10 && b < 10 ? a * b : -1) << endl;
   return 0;
 }
