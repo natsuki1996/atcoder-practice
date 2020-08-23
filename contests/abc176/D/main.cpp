@@ -8,9 +8,6 @@ const ll INF = 1LL << 62;
 const double PI = acos(-1);
 const double eps = 1e-10;
 
-const ll dx[4] = {-1, 0, 0, 1};
-const ll dy[4] = {0, -1, 1, 0};
-
 int main() {
   ll h, w, ch, cw, dh, dw;
   cin >> h >> w >> ch >> cw >> dh >> dw;
@@ -23,60 +20,30 @@ int main() {
     return 0 <= x && x < h && 0 <= y && y < w;
   };
 
-  auto print_d = [&]() {
-    rep(i, h) {
-      rep(j, w) {
-        if (s[i][j] == '#')
-          cerr << "#";
-        else if (d[i][j] == INF)
-          cerr << "x";
-        else
-          cerr << d[i][j];
-      }
-      cerr << endl;
-    }
-    cerr << endl;
-    return;
-  };
-
-  queue<P> q, r;
-  q.push(P(ch, cw));
+  deque<P> q;
+  q.push_back(P(ch, cw));
   d[ch][cw] = 0;
-  while (!q.empty() || !r.empty()) {
-    while (!q.empty()) {
-      ll x = q.front().first, y = q.front().second;
-      q.pop();
-      for (ll i = -2; i <= 2; i++) {
-        for (ll j = -2; j <= 2; j++) {
-          ll nx = x + i, ny = y + j;
-          // cerr << nx << " " << ny << endl;
-          if (!is_range(nx, ny)) continue;
-          if (nx == x && ny == y) continue;
-          if (s[nx][ny] == '#') continue;
-          // if (d[nx][ny] <= d[x][y]) continue;
+  while (!q.empty()) {
+    ll x = q.front().first, y = q.front().second;
+    q.pop_front();
+    for (ll i = -2; i <= 2; i++) {
+      for (ll j = -2; j <= 2; j++) {
+        ll nx = x + i, ny = y + j;
+        if (!is_range(nx, ny)) continue;
+        if (nx == x && ny == y) continue;
+        if (s[nx][ny] == '#') continue;
+        if (d[nx][ny] <= d[x][y]) continue;
 
-          if (abs(i) + abs(j) <= 1) {
-            if (d[nx][ny] <= d[x][y]) continue;
-            d[nx][ny] = d[x][y];
-            q.push(P(nx, ny));
-          } else {
-            if (d[nx][ny] <= d[x][y] + 1) continue;
-            d[nx][ny] = d[x][y] + 1;
-            r.push(P(nx, ny));
-          }
+        if (abs(i) + abs(j) <= 1) {
+          d[nx][ny] = d[x][y];
+          q.push_front(P(nx, ny));
+        } else if (d[nx][ny] == INF) {
+          d[nx][ny] = d[x][y] + 1;
+          q.push_back(P(nx, ny));
         }
       }
     }
-    // print_d();
-
-    swap(q, r);
   }
-
-  if (d[dh][dw] == INF) {
-    cout << -1 << endl;
-  } else {
-    cout << d[dh][dw] << endl;
-  }
-
+  cout << (d[dh][dw] != INF ? d[dh][dw] : -1) << endl;
   return 0;
 }
