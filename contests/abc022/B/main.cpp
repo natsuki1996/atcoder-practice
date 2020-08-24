@@ -9,7 +9,14 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n;
+  ll n, a, ans = 0;
   cin >> n;
+  map<int, int> mp;
+  rep(i, n) {
+    cin >> a;
+    mp[a]++;
+    if (mp[a] > 1) ans++;
+  }
+  cout << ans << endl;
   return 0;
 }
