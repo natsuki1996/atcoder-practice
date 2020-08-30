@@ -61,7 +61,7 @@ int main() {
   Sieve s(1000001);
 
   ll all = gcd(a[0], a[1]);
-  rep(i, n) all = gcd(all, a[i]);
+  for (int i = 2; i < n; i++) all = gcd(all, a[i]);
 
   bool pc = true;
   map<int, int> mp;
