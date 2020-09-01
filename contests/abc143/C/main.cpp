@@ -10,6 +10,17 @@ const double eps = 1e-10;
 
 int main() {
   ll n;
-  cin >> n;
+  string s;
+  cin >> n >> s;
+  vector<pair<char, int>> vec;
+  vec.emplace_back(s[0], 0);
+  rep(i, s.size()) {
+    if (vec.back().first == s[i]) {
+      vec.back().second++;
+    } else {
+      vec.emplace_back(s[i], 1);
+    }
+  }
+  cout << vec.size() << endl;
   return 0;
 }
