@@ -9,14 +9,7 @@ const double PI = acos(-1);
 const double eps = 1e-10;
 
 int main() {
-  ll n, k, ans = 0;
-  cin >> n >> k;
-  vector<ll> a(n), b(n + 1);
-  rep(i, n) {
-    cin >> a[i];
-    b[i + 1] = b[i] + a[i];
-  }
-  rep(i, n - k + 1) ans += b[i + k] - b[i];
-  cout << ans << endl;
+  ll n;
+  cin >> n;
   return 0;
 }
